@@ -1,4 +1,4 @@
-const BASE_URL = 'http://10.150.23.105:3000';
+const BASE_URL = 'http://localhost:3000';
 
 const addTodo = async () => {
     const input = document.getElementById('taskInput');
@@ -48,12 +48,11 @@ const displayTodo = (todo) => {
         <span>${todo.task}</span>
         <div>
             <button class="complete-btn" onclick="completeTodo(${todo.id})">✔️</button>
-            <button class="delete-btn" onclick="deleteTodo(${todo.id})"></button>
+            <button class="delete-btn" onclick="deleteTodo(${todo.id})">❌</button>
         </div>
     `;
     todoList.appendChild(li);
 };
-
 const fetchTodos = async () => {
     const response = await fetch(`${BASE_URL}/todos`);
     const todos = await response.json();
